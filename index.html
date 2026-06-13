@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Un Mes Contigo, Novia 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            animation: slideIn 0.8s ease-out;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-in;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* SCROLL PERSONALIZADO */
+        .page::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .page::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .page::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        .page::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* PORTADA */
+        .portada {
+            text-align: center;
+        }
+
+        .portada h1 {
+            font-size: 3em;
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .corazon {
+            font-size: 4em;
+            animation: float 3s ease-in-out infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .portada p {
+            font-size: 1.3em;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        /* QUIZ BUTTONS */
+        .quiz-container {
+            margin: 30px 0;
+        }
+
+        .quiz-title {
+            font-size: 1.8em;
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option-btn {
+            padding: 15px 20px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .option-btn:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ee5a9c 100%);
+            transform: scale(1.05);
+        }
+
+        /* CARTA FINAL */
+        .carta {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b9d;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .carta h2 {
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .carta p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .firma {
+            margin-top: 30px;
+            text-align: right;
+            font-size: 1.2em;
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        /* BOTONES DE NAVEGACIÓN */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* PROGRESO */
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        /* CONFETI */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b9d;
+            animation: confettiFall 3s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* RESULTADO */
+        .resultado {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .resultado-emoji {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .resultado-texto {
+            font-size: 1.5em;
+            color: #ff6b9d;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .decoracion {
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        .fin-mensaje {
+            text-align: center;
+            font-size: 1.3em;
+            color: #ff6b9d;
+            margin-top: 30px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        /* PÁGINA DE MOMENTOS INTERACTIVOS */
+        .momentos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .momento-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .momento-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .momento-btn .emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .momento-btn .texto {
+            font-size: 0.9em;
+        }
+
+        /* PÁGINA DE FAVORITOS */
+        .favoritos-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .favorito-item {
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b9d;
+        }
+
+        .favorito-item h3 {
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .favorito-item p {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        /* PÁGINA DE DESAFÍOS */
+        .desafios-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .desafio-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .desafio-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .desafio-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .desafio-item p {
+            font-size: 0.95em;
+        }
+
+        /* PÁGINA DE CONTEO */
+        .contador-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contador-info {
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #ff6b9d;
+        }
+
+        .contador-info h3 {
+            color: #ff6b9d;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .contador-info p {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .contador-texto {
+            font-size: 1.5em;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        /* PÁGINA FINAL CON LLUVIA DE PALABRAS */
+        .lluvia-palabras {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .palabra-flotante {
+            position: absolute;
+            font-weight: bold;
+            opacity: 0;
+            animation: caerPalabra 4s ease-in forwards;
+            pointer-events: none;
+        }
+
+        @keyframes caerPalabra {
+            0% {
+                opacity: 1;
+                transform: translateY(-100px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(300px);
+            }
+        }
+
+        /* ESTILOS ADICIONALES */
+        .header-emoji {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .separador {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 20px 0;
+        }
+
+        .juego-vino {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .vino-option {
+            padding: 15px 20px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .vino-option:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .vino-option.selected {
+            background: linear-gradient(135deg, #8B0000 0%, #660000 100%);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .portada h1 {
+                font-size: 2em;
+            }
+
+            .momentos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PÁGINA 1: PORTADA -->
+        <div class="page active" id="page1">
+            <div class="portada">
+                <h1>💕 Un Mes Contigo 💕</h1>
+                <div class="corazon">❤️</div>
+                <p>¡Felicidades novia!</p>
+                <p>Este mes ha sido el más especial de mi vida</p>
+                <p>Te tengo una sorpresa llena de amor 💖</p>
+                <button class="btn btn-full" onclick="irAlSiguiente()" style="margin-top: 30px;">Continuar →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 2: JUEGO 1 - ADIVINA EL EMOJI -->
+        <div class="page" id="page2">
+            <div class="progress">
+                <div class="progress-bar" style="width: 15%"></div>
+            </div>
+            <div class="header-emoji">🎮</div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Juego 1: Adivina el Emoji</h2>
+                <div class="quiz-question">¿Cuál es mi emoji favorito?</div>
+                <div class="opciones">
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'mal')">🤔 Pensador</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'mal')">😢 Triste</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">♥️ Corazón rojo</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'mal')">😳 Sorprendido</button>
+                </div>
+                <div id="resultado1"></div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 3: JUEGO 2 - VERDADERO O FALSO -->
+        <div class="page" id="page3">
+            <div class="progress">
+                <div class="progress-bar" style="width: 30%"></div>
+            </div>
+            <div class="header-emoji">🎯</div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Juego 2: Verdadero o Falso</h2>
+                <div class="quiz-question">Este mes contigo ha sido lo mejor que me ha pasado</div>
+                <div class="opciones">
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">✅ Verdadero</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'mal')">❌ Falso</button>
+                </div>
+                <div id="resultado2"></div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: JUEGO 3 - VINO Y PENSAMIENTOS -->
+        <div class="page" id="page4">
+            <div class="progress">
+                <div class="progress-bar" style="width: 45%"></div>
+            </div>
+            <div class="header-emoji">🍷</div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Juego 3: Vino y Pensamientos</h2>
+                <div class="quiz-question">¿En qué pienso cuando estoy contigo?</div>
+                <div class="juego-vino">
+                    <button class="vino-option" onclick="seleccionarOpcionVino(this, 'mal')">📱 En el teléfono</button>
+                    <button class="vino-option" onclick="seleccionarOpcionVino(this, 'bien')">💕 En cuánto te amo</button>
+                    <button class="vino-option" onclick="seleccionarOpcionVino(this, 'mal')">⌚ En el tiempo</button>
+                    <button class="vino-option" onclick="seleccionarOpcionVino(this, 'mal')">😴 En dormir</button>
+                </div>
+                <div id="resultado3"></div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 5: JUEGO 4 - MEMORIA -->
+        <div class="page" id="page5">
+            <div class="progress">
+                <div class="progress-bar" style="width: 60%"></div>
+            </div>
+            <div class="header-emoji">🧠</div>
+            <div class="quiz-container">
+                <h2 class="quiz-title">Juego 4: Memoria del Corazón</h2>
+                <div class="quiz-question">¿Cuál es la razón por la que te amo?</div>
+                <div class="opciones">
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">💖 Por tu sonrisa, tu forma de ser y tu amor</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">💖 Porque eres increíble en todo sentido</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">💖 Todas las anteriores son correctas</button>
+                    <button class="option-btn" onclick="seleccionarOpcion(this, 'bien')">💖 Mi corazón simplemente lo sabe</button>
+                </div>
+                <div id="resultado4"></div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 6: MOMENTOS ESPECIALES INTERACTIVOS -->
+        <div class="page" id="page6">
+            <div class="progress">
+                <div class="progress-bar" style="width: 72%"></div>
+            </div>
+            <div class="header-emoji">📸</div>
+            <h2 class="quiz-title">Nuestros Momentos Especiales</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">¡Haz clic en cada momento para revivir el recuerdo! 💕</p>
+            <div class="momentos-grid">
+                <button class="momento-btn" onclick="mostrarMomento('🎭 Risas sin fin', '¡Tus risas son lo mejor que me pasa!')">
+                    <div class="emoji">🎭</div>
+                    <div class="texto">Risas sin fin</div>
+                </button>
+                <button class="momento-btn" onclick="mostrarMomento('🌙 Noches especiales', '¡Cada noche contigo es mágica!')">
+                    <div class="emoji">🌙</div>
+                    <div class="texto">Noches especiales</div>
+                </button>
+                <button class="momento-btn" onclick="mostrarMomento('☕ Cafés juntos', '¡Nuestros momentos de café son perfectos!')">
+                    <div class="emoji">☕</div>
+                    <div class="texto">Cafés juntos</div>
+                </button>
+                <button class="momento-btn" onclick="mostrarMomento('🎵 Canciones nuestras', '¡Cada canción me recuerda a ti!')">
+                    <div class="emoji">🎵</div>
+                    <div class="texto">Canciones nuestras</div>
+                </button>
+                <button class="momento-btn" onclick="mostrarMomento('🌸 Tu belleza', '¡Eres hermosa dentro y fuera!')">
+                    <div class="emoji">🌸</div>
+                    <div class="texto">Tu belleza</div>
+                </button>
+                <button class="momento-btn" onclick="mostrarMomento('💑 Abrazos eternos', '¡Tus abrazos son mi lugar seguro!')">
+                    <div class="emoji">💑</div>
+                    <div class="texto">Abrazos eternos</div>
+                </button>
+            </div>
+            <div id="mensajeMomento" style="text-align: center; margin-top: 20px; font-size: 1.2em; color: #ff6b9d; font-weight: bold;"></div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 7: SOLO TU -->
+        <div class="page" id="page7">
+            <div class="progress">
+                <div class="progress-bar" style="width: 82%"></div>
+            </div>
+            <div class="header-emoji">⭐</div>
+            <h2 class="quiz-title">Solo Tú</h2>
+            <div class="separador"></div>
+            <div class="favoritos-container">
+                <div class="favorito-item">
+                    <h3>❤️ Tu Sonrisa</h3>
+                    <p>Esa sonrisa que ilumina mi día. Cada vez que la veo, mi corazón se acelera.</p>
+                </div>
+                <div class="favorito-item">
+                    <h3>💬 Tu Risa</h3>
+                    <p>Tu risa es la música más hermosa que mis oídos pueden escuchar. Me encanta hacerte reír.</p>
+                </div>
+                <div class="favorito-item">
+                    <h3>🤗 Tus Abrazos</h3>
+                    <p>Cuando me abrazas, siento que nada malo puede pasarme. Eres mi refugio seguro.</p>
+                </div>
+                <div class="favorito-item">
+                    <h3>👀 Tu Mirada</h3>
+                    <p>La manera en que me miras me hace sentir el hombre más amado del mundo.</p>
+                </div>
+                <div class="favorito-item">
+                    <h3>💕 Tu Corazón</h3>
+                    <p>La pureza y bondad de tu corazón es lo que más admiro de ti. Eres increíble.</p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 8: DESAFÍOS Y PROMESAS -->
+        <div class="page" id="page8">
+            <div class="progress">
+                <div class="progress-bar" style="width: 90%"></div>
+            </div>
+            <div class="header-emoji">🎯</div>
+            <h2 class="quiz-title">Mis Promesas Para Ti</h2>
+            <div class="separador"></div>
+            <div class="desafios-container">
+                <div class="desafio-item">
+                    <h3>💪 Prometo cuidar tu corazón</h3>
+                    <p>Con la misma dedicación y amor que cuidas el mío</p>
+                </div>
+                <div class="desafio-item">
+                    <h3>🌟 Prometo apoyarte siempre</h3>
+                    <p>En tus sueños, metas y en cada paso que des</p>
+                </div>
+                <div class="desafio-item">
+                    <h3>👂 Prometo escucharte</h3>
+                    <p>Cada una de tus palabras es importante para mí</p>
+                </div>
+                <div class="desafio-item">
+                    <h3>💖 Prometo amarte más cada día</h3>
+                    <p>Cada día te amaré un poco más que ayer</p>
+                </div>
+                <div class="desafio-item">
+                    <h3>🛡️ Prometo protegerte</h3>
+                    <p>De cualquier mal que intente tocarte</p>
+                </div>
+                <div class="desafio-item">
+                    <h3>😊 Prometo hacerte feliz</h3>
+                    <p>Cada momento contigo será especial y lleno de amor</p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 9: NUESTRO TIEMPO JUNTOS -->
+        <div class="page" id="page9">
+            <div class="progress">
+                <div class="progress-bar" style="width: 95%"></div>
+            </div>
+            <div class="contador-container">
+                <h2 class="quiz-title">Nuestro Tiempo Juntos</h2>
+                <div class="separador"></div>
+                
+                <div class="contador-info">
+                    <h3>📅 Sábados</h3>
+                    <p>Tiempo completo juntos, creando recuerdos especiales</p>
+                </div>
+
+                <div class="contador-info">
+                    <h3>📅 Domingos</h3>
+                    <p>Tardes hermosas donde disfruto de tu compañía</p>
+                </div>
+
+                <div class="contador-info">
+                    <h3>📅 Un día entre semana</h3>
+                    <p>Cuando se puede, para que no te extrañe tanto</p>
+                </div>
+
+                <div class="contador-info">
+                    <h3>📱 El resto del mes</h3>
+                    <p>Conectados por mensajes, cada palabra tuya me hace feliz</p>
+                </div>
+
+                <p style="margin-top: 30px; color: #666; font-size: 1.1em;">Cada momento contigo es invaluable 💕</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 10: CARTA FINAL -->
+        <div class="page" id="page10">
+            <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+            <div class="decoracion">💝 💕 💝</div>
+            <div class="carta">
+                <h2>Mi Amor,</h2>
+                <p>
+                    Hace exactamente un mes que mi vida cambió por completo. Un mes desde que tu sonrisa 
+                    iluminó mi mundo y tu presencia se convirtió en lo más importante para mí.
+                </p>
+                <p>
+                    Cada día contigo es un regalo inmenso. Cada momento, cada palabra, cada gesto tuyo me recuerda 
+                    por qué eres tan especial y única. Tu forma de amar, tu bondad, tu belleza tanto física como 
+                    interior, me hace sentir el hombre más afortunado del mundo.
+                </p>
+                <p>
+                    En este mes he aprendido a amar de una manera que nunca creí posible. Tu risa es mi 
+                    canción favorita, tu compañía es mi lugar favorito, y tu amor es lo que hace que 
+                    cada día valga la pena vivir.
+                </p>
+                <p>
+                    Gracias por confiar en mí, por permitirme ser parte de tu vida, por tus abrazos reconfortantes, 
+                    tus besos apasionados, tus cuidados constantes y tu infinito amor. Gracias por ser exactamente como eres, 
+                    porque no cambiaría absolutamente nada de ti.
+                </p>
+                <p>
+                    Prometo cuidar tu corazón con la dedicación que merece, respetarte siempre en cada aspecto de nuestras vidas, 
+                    apoyarte en todo lo que te propongas y amarte cada día más de lo que te amé el día anterior. 
+                    Este es solo el comienzo de nuestra historia de amor.
+                </p>
+                <p>
+                    Quiero que sepas que eres lo mejor que me ha pasado. Tu presencia en mi vida me ha transformado en una 
+                    mejor persona. Contigo descubrí que el amor verdadero existe, que es posible sentir esta felicidad infinita 
+                    y que cada momento importa.
+                </p>
+                <p style="margin-top: 30px; font-size: 1.3em; text-align: center;">
+                    Te amo infinitamente mi niña hermosa con cada fibra de mi ser. ❤️💕
+                </p>
+                <div class="firma">
+                    ✨ Tu amor ✨<br>
+                    Con todo mi corazón y alma 💖<br>
+                    Por siempre tuyo 💕
+                </div>
+            </div>
+
+            <div class="fin-mensaje" style="margin-top: 40px;">
+                🎊 Feliz primer mes juntos, mi amor 🎊
+            </div>
+
+            <div class="nav-buttons" style="margin-top: 40px;">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+                    <div onclick="iniciarLluvia()" style="font-size: 4em; cursor: pointer; animation: pulse 2s infinite;">💕</div>
+                </div>
+            </div>
+
+            <div class="lluvia-palabras" id="lluviaContenedor" style="display: none; margin-top: 30px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let paginaActual = 1;
+        const totalPaginas = 10;
+        let lluviaActiva = false;
+
+        function irAlSiguiente() {
+            if (paginaActual < totalPaginas) {
+                cambiarPagina(paginaActual + 1);
+            }
+        }
+
+        function irAlAnterior() {
+            if (paginaActual > 1) {
+                cambiarPagina(paginaActual - 1);
+            }
+        }
+
+        function cambiarPagina(numero) {
+            document.getElementById(`page${paginaActual}`).classList.remove('active');
+            paginaActual = numero;
+            document.getElementById(`page${paginaActual}`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function seleccionarOpcion(elemento, resultado) {
+            elemento.parentElement.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            elemento.classList.add('selected');
+
+            const resultadoDiv = elemento.parentElement.nextElementSibling;
+            if (resultado === 'bien') {
+                resultadoDiv.innerHTML = '<div class="resultado"><div class="resultado-emoji">🎉</div><div class="resultado-texto">¡Correcto! ¡Eres increíble! 💕</div></div>';
+            } else {
+                resultadoDiv.innerHTML = '<div class="resultado"><div class="resultado-emoji">😊</div><div class="resultado-texto">No importa, ¡lo importante es que te amo! 💕</div></div>';
+            }
+        }
+
+        function seleccionarOpcionVino(elemento, resultado) {
+            elemento.parentElement.querySelectorAll('.vino-option').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            elemento.classList.add('selected');
+
+            const resultadoDiv = elemento.parentElement.nextElementSibling;
+            if (resultado === 'bien') {
+                resultadoDiv.innerHTML = '<div class="resultado"><div class="resultado-emoji">🍷💕</div><div class="resultado-texto">¡Siempre en ti pienso! ❤️</div></div>';
+            } else {
+                resultadoDiv.innerHTML = '<div class="resultado"><div class="resultado-emoji">😊</div><div class="resultado-texto">¡Lo importante es que siempre pienso en ti! 💕</div></div>';
+            }
+        }
+
+        function mostrarMomento(titulo, mensaje) {
+            const mensajeDiv = document.getElementById('mensajeMomento');
+            mensajeDiv.innerHTML = `<div style="animation: fadeIn 0.5s ease-in;">💫 ${mensaje}</div>`;
+        }
+
+        function iniciarLluvia() {
+            if (lluviaActiva) return;
+            lluviaActiva = true;
+
+            const contenedor = document.getElementById('lluviaContenedor');
+            contenedor.style.display = 'flex';
+            contenedor.innerHTML = '';
+
+            const palabras = [
+                '❤️', 'Te amo', '💕', 'Mi amor', '😘', 'Hermosa',
+                '✨', 'Perfecta', '🌹', 'Bella', '💖', 'Eres todo',
+                '🥰', 'Mi vida', '😍', 'Increíble', '💑', 'Juntos',
+                '🎊', 'Felicidad', '👑', 'Reina', '🌟', 'Especial',
+                '💫', 'Mágica', '🎉', 'Celebramos', '❣️', 'Siempre',
+                '💏', 'Besos', '🌺', 'Flor', '⭐', 'Brillas'
+            ];
+
+            let delay = 0;
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const palabra = document.createElement('div');
+                    palabra.classList.add('palabra-flotante');
+                    palabra.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+                    palabra.style.left = Math.random() * 100 + '%';
+                    palabra.style.color = ['#ff6b9d', '#667eea', '#764ba2', '#FFD700', '#ff1493'][Math.floor(Math.random() * 5)];
+                    palabra.style.fontSize = (1 + Math.random()) + 'em';
+                    palabra.style.animationDelay = '0s';
+                    contenedor.appendChild(palabra);
+
+                    setTimeout(() => palabra.remove(), 4000);
+                }, delay);
+                delay += 150;
+            }
+
+            setTimeout(() => {
+                lanzarConfeti();
+                setTimeout(() => {
+                    lluviaActiva = false;
+                }, 5000);
+            }, 2000);
+        }
+
+        function lanzarConfeti() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = ['#ff6b9d', '#667eea', '#764ba2', '#FFD700', '#ff1493', '#00ff88'][Math.floor(Math.random() * 6)];
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 20);
+            }
+        }
+    </script>
+</body>
+</html>
