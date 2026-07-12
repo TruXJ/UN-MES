@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🗺️ El Viaje de Nuestros 60 Días 🗺️</title>
+    <title>💫 Nuestro Viaje Interdimensional 💫</title>
     <style>
         * {
             margin: 0;
@@ -12,563 +12,529 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background: linear-gradient(45deg, #1a1a2e 0%, #0f3460 100%);
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #eee;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #fff;
             overflow-x: hidden;
-        }
-
-        .world-container {
-            width: 100%;
-            height: 100vh;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .main-screen {
-            width: 95%;
-            height: 95vh;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23444" stroke-width="0.5"/></pattern></defs><rect width="1200" height="800" fill="%231a1a2e"/><rect width="1200" height="800" fill="url(%23grid)"/></svg>');
-            border: 4px solid #00ff88;
-            border-radius: 20px;
-            box-shadow: 0 0 50px #00ff88;
-            position: relative;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .terminal-header {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            color: #00ff88;
-            text-shadow: 0 0 10px #00ff88;
-            letter-spacing: 3px;
-            animation: flicker 0.15s infinite;
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.95; }
-        }
-
-        .pages-container {
-            flex: 1;
-            display: flex;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page {
-            width: 100%;
-            height: 100%;
-            display: none;
-            position: absolute;
+        /* ESTRELLAS DE FONDO */
+        .stars {
+            position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* PÁGINA */
+        .page {
+            display: none;
             opacity: 0;
-            transition: opacity 0.5s ease;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .page::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .page::-webkit-scrollbar-track {
-            background: #0f3460;
-        }
-
-        .page::-webkit-scrollbar-thumb {
-            background: #00ff88;
+            width: 100%;
+            max-width: 1200px;
+            animation: fadeIn 0.8s ease-in forwards;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .page.active {
-            display: block;
-            opacity: 1;
+            display: flex;
         }
 
-        /* PÁGINA 1: MAPA INTERACTIVO */
-        .mapa-container {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ================ PÁGINA 1: INICIO CINEMATICO ================ */
+        .cinetico-inicio {
+            text-align: center;
+            width: 100%;
+        }
+
+        .titulo-principal {
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #FF006E, #00D9FF, #FFD700, #FF006E);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite, float 3s ease-in-out infinite;
+            letter-spacing: 3px;
+            text-shadow: 0 0 60px rgba(255, 0, 110, 0.5);
+            margin-bottom: 30px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .titulo-sub {
+            font-size: 2em;
+            color: #00D9FF;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px #00D9FF;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .emojis-flotantes {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 4em;
+            margin: 40px 0;
+        }
+
+        .emoji-item {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .emoji-item:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .emoji-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .boton-principal {
+            margin-top: 50px;
+            padding: 20px 60px;
+            font-size: 1.5em;
+            background: linear-gradient(45deg, #FF006E, #00D9FF);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+        }
+
+        .boton-principal:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 60px rgba(255, 0, 110, 0.8);
+        }
+
+        /* ================ PÁGINA 2: GALERÍA DE RECUERDOS ================ */
+        .galeria-recuerdos {
+            width: 100%;
+            text-align: center;
+        }
+
+        .titulo-seccion {
+            font-size: 3.5em;
+            color: #00D9FF;
+            margin-bottom: 60px;
+            text-shadow: 0 0 30px #00D9FF;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .grid-recuerdos {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            height: 100%;
-            align-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
-        .location-node {
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 2px solid #00ff88;
-            border-radius: 10px;
-            padding: 20px;
+        .recuerdo-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 0, 110, 0.1));
+            border: 2px solid #FF006E;
+            border-radius: 20px;
+            padding: 40px 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .location-node::before {
+        .recuerdo-card::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0,255,136,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.3), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .location-node:hover {
-            border-color: #ff006e;
-            box-shadow: 0 0 20px #ff006e;
-            transform: scale(1.05);
+        .recuerdo-card:hover {
+            border-color: #00D9FF;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 0, 110, 0.2));
+            transform: translateY(-20px);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.4);
         }
 
-        .location-node:hover::before {
-            opacity: 1;
-        }
-
-        .location-node h3 {
-            color: #00ff88;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .location-emoji {
-            font-size: 3em;
-            margin: 10px 0;
-        }
-
-        .location-desc {
-            color: #bbb;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-
-        .connection-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, #00ff88, #ff006e);
-            opacity: 0.5;
-            animation: pulse-line 2s infinite;
-        }
-
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* PÁGINA 2: JUEGO DE PREGUNTAS */
-        .game-arena {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-        }
-
-        .question-box {
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 3px solid #ff006e;
-            border-radius: 15px;
-            padding: 40px;
-            max-width: 700px;
-            margin-bottom: 40px;
-            box-shadow: 0 0 30px #ff006e;
-        }
-
-        .question-number {
-            color: #00ff88;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .recuerdo-emoji {
+            font-size: 4em;
             margin-bottom: 15px;
         }
 
-        .question-text {
-            color: #fff;
+        .recuerdo-titulo {
             font-size: 1.8em;
-            margin-bottom: 30px;
+            color: #FFD700;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
-        .answer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .answer-btn {
-            background: linear-gradient(135deg, #0f3460 0%, #162a42 100%);
-            border: 2px solid #00ff88;
-            color: #00ff88;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
+        .recuerdo-desc {
+            color: #aaa;
             font-size: 1.1em;
-            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* ================ PÁGINA 3: CRONÓMETRO INTERACTIVO ================ */
+        .cronometro-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .cronometro-display {
+            font-size: 8em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #FF006E, #00D9FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 40px 0;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .contador-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .contador-item {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 217, 255, 0.1));
+            border: 2px solid #00D9FF;
+            border-radius: 15px;
+            padding: 30px;
             transition: all 0.3s ease;
+        }
+
+        .contador-item:hover {
+            border-color: #FF006E;
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(255, 0, 110, 0.3);
+        }
+
+        .contador-numero {
+            font-size: 3em;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contador-label {
+            font-size: 1.3em;
+            color: #00D9FF;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .answer-btn:hover {
-            border-color: #ff006e;
-            color: #ff006e;
-            box-shadow: 0 0 20px #ff006e;
-            transform: scale(1.05);
-        }
-
-        .answer-btn.correct {
-            background: #00ff88;
-            color: #1a1a2e;
-            box-shadow: 0 0 30px #00ff88;
-        }
-
-        .answer-btn.incorrect {
-            background: #ff006e;
-            color: #fff;
-            box-shadow: 0 0 30px #ff006e;
-        }
-
-        /* PÁGINA 3: GALERÍA 3D */
-        .gallery-3d {
-            perspective: 1000px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .carousel {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            transform-style: preserve-3d;
-        }
-
-        .carousel-item {
-            position: absolute;
+        /* ================ PÁGINA 4: HISTORIAS INTERACTIVAS ================ */
+        .historias-section {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 3px solid #00ff88;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: rotateY(0deg) translateZ(-400px);
-            transition: transform 0.6s ease, opacity 0.6s ease;
-            padding: 40px;
             text-align: center;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
         }
 
-        .carousel-item.active {
-            opacity: 1;
-            transform: rotateY(0deg) translateZ(0);
-            border-color: #ff006e;
-            box-shadow: 0 0 50px #ff006e;
-        }
-
-        .carousel-item.prev {
-            opacity: 0.3;
-            transform: rotateY(60deg) translateZ(-200px);
-        }
-
-        .carousel-item.next {
-            opacity: 0.3;
-            transform: rotateY(-60deg) translateZ(-200px);
-        }
-
-        .carousel-emoji {
-            font-size: 5em;
-            margin-bottom: 20px;
-        }
-
-        .carousel-title {
-            color: #00ff88;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .carousel-desc {
-            color: #bbb;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .carousel-btn {
-            background: linear-gradient(135deg, #0f3460 0%, #162a42 100%);
-            border: 2px solid #00ff88;
-            color: #00ff88;
-            padding: 10px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
+        .historia-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(255, 0, 110, 0.15));
+            border: 3px solid #00D9FF;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
             transition: all 0.3s ease;
-            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
         }
 
-        .carousel-btn:hover {
-            border-color: #ff006e;
-            color: #ff006e;
-            box-shadow: 0 0 20px #ff006e;
+        .historia-card:hover {
+            border-color: #FF006E;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.25), rgba(255, 0, 110, 0.25));
+            transform: translateX(20px);
+            box-shadow: 0 15px 50px rgba(255, 0, 110, 0.3);
         }
 
-        /* PÁGINA 4: EDITOR DE CÓDIGO */
-        .code-editor {
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 2px solid #00ff88;
-            border-radius: 10px;
-            padding: 30px;
-            font-family: 'Courier New', monospace;
-            overflow-y: auto;
-            height: 100%;
-        }
-
-        .code-line {
-            color: #bbb;
+        .historia-numero {
+            font-size: 2em;
+            color: #FFD700;
             margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .code-keyword {
-            color: #ff006e;
             font-weight: bold;
         }
 
-        .code-string {
-            color: #00ff88;
+        .historia-titulo {
+            font-size: 2.5em;
+            color: #00D9FF;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00D9FF;
         }
 
-        .code-comment {
-            color: #666;
-            font-style: italic;
+        .historia-texto {
+            font-size: 1.3em;
+            color: #ddd;
+            line-height: 1.8;
+            text-align: justify;
         }
 
-        .code-function {
-            color: #ffd700;
-        }
-
-        /* PÁGINA 5: CONSOLA INTERACTIVA */
-        .console-screen {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 2px solid #00ff88;
-            border-radius: 10px;
-            padding: 20px;
-            font-family: 'Courier New', monospace;
-            overflow-y: auto;
-        }
-
-        .console-line {
-            color: #00ff88;
-            margin: 8px 0;
-            min-height: 20px;
-        }
-
-        .console-input {
-            color: #ff006e;
-        }
-
-        .console-output {
-            color: #ffd700;
-        }
-
-        .prompt {
-            color: #00ff88;
-            margin-right: 10px;
-        }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 20px;
-            background: #00ff88;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        /* PÁGINA 6: MAPA DE TESORO */
-        .treasure-map {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
+        /* ================ PÁGINA 5: RAZONES INFINITAS ================ */
+        .razones-section {
+            width: 100%;
             text-align: center;
         }
 
-        .map-canvas {
-            width: 500px;
-            height: 500px;
-            border: 3px solid #ff006e;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
+        .razones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .razon-bubble {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(0, 217, 255, 0.2));
+            border: 2px solid #FF006E;
+            border-radius: 50%;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            color: #fff;
+            font-weight: bold;
+            padding: 20px;
             position: relative;
-            margin-bottom: 30px;
-            box-shadow: 0 0 40px #ff006e;
             overflow: hidden;
         }
 
-        .treasure-point {
+        .razon-bubble::before {
+            content: '';
             position: absolute;
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, #ffd700, #ff006e);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .treasure-point:hover {
-            transform: scale(1.3);
-            box-shadow: 0 0 30px #ffd700;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 10px #ff006e; }
-            50% { box-shadow: 0 0 30px #ffd700; }
-        }
-
-        .treasure-label {
-            color: #00ff88;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-
-        .treasure-info {
-            background: linear-gradient(135deg, #162a42 0%, #0f3460 100%);
-            border: 2px solid #00ff88;
-            border-radius: 10px;
-            padding: 25px;
-            max-width: 600px;
-        }
-
-        .treasure-info h3 {
-            color: #ffd700;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .treasure-info p {
-            color: #bbb;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        /* PÁGINA 7: FINAL */
-        .final-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 0;
             height: 100%;
+            background: linear-gradient(90deg, #FF006E, #00D9FF);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .razon-bubble:hover::before {
+            width: 100%;
+        }
+
+        .razon-bubble:hover {
+            border-color: #00D9FF;
+            transform: scale(1.15);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+        }
+
+        /* ================ PÁGINA 6: PROMESAS FUTURO ================ */
+        .promesas-section {
+            width: 100%;
             text-align: center;
         }
 
-        .final-message {
-            font-size: 3em;
-            color: #ff006e;
-            text-shadow: 0 0 20px #ff006e;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .final-text {
-            color: #00ff88;
-            font-size: 1.3em;
-            line-height: 1.8;
+        .promesa-item {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 0, 110, 0.1));
+            border-left: 5px solid #00D9FF;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
             max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .promesa-item:hover {
+            border-left-color: #FF006E;
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(0, 217, 255, 0.2));
+            transform: translateX(15px);
+        }
+
+        .promesa-emoji {
+            font-size: 2.5em;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .promesa-titulo {
+            font-size: 1.5em;
+            color: #00D9FF;
+            margin-bottom: 10px;
+        }
+
+        .promesa-desc {
+            font-size: 1.1em;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* ================ PÁGINA 7: FINAL ÉPICO ================ */
+        .final-epicom {
+            width: 100%;
+            text-align: center;
+        }
+
+        .mensaje-final {
+            font-size: 3.5em;
+            color: #FF006E;
             margin-bottom: 40px;
+            text-shadow: 0 0 40px #FF006E;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
-        .particle {
-            position: fixed;
-            pointer-events: none;
-            font-size: 2em;
-            animation: float-up 3s ease-out forwards;
+        .corazon-gigante {
+            font-size: 6em;
+            animation: latir 1.2s ease-in-out infinite;
+            margin: 40px 0;
         }
 
-        @keyframes float-up {
-            0% {
-                opacity: 1;
-                transform: translateY(0) translateX(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-500px) translateX(100px) scale(0);
-            }
+        @keyframes latir {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1); }
         }
 
-        /* BOTONES DE NAVEGACIÓN */
-        .bottom-nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
+        .mensaje-amor {
+            font-size: 1.8em;
+            color: #00D9FF;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 40px auto;
+            text-shadow: 0 0 20px #00D9FF;
         }
 
-        .nav-btn {
-            background: linear-gradient(135deg, #0f3460 0%, #162a42 100%);
-            border: 2px solid #00ff88;
-            color: #00ff88;
-            padding: 12px 30px;
-            border-radius: 8px;
+        .boton-celebrar {
+            margin-top: 50px;
+            padding: 25px 80px;
+            font-size: 1.8em;
+            background: linear-gradient(45deg, #FF006E, #00D9FF, #FFD700);
+            border: none;
+            color: white;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.6);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .boton-celebrar:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 80px rgba(0, 217, 255, 0.8);
+        }
+
+        /* ================ NAVEGACIÓN ================ */
+        .nav-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #FF006E, #00D9FF);
+            border: none;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
             letter-spacing: 1px;
-            font-size: 0.9em;
         }
 
         .nav-btn:hover {
-            border-color: #ff006e;
-            color: #ff006e;
-            box-shadow: 0 0 20px #ff006e;
             transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
         }
 
         .nav-btn:disabled {
@@ -576,371 +542,378 @@
             cursor: not-allowed;
         }
 
-        .page-counter {
-            color: #00ff88;
-            font-size: 0.9em;
+        .page-indicator {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 1.3em;
+            color: #00D9FF;
+            text-shadow: 0 0 10px #00D9FF;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* ================ EFECTOS DE PARTÍCULAS ================ */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            animation: particleFloat 3s ease-out forwards;
+            font-size: 2em;
+            z-index: 1000;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-500px) translateX(200px) scale(0);
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .main-screen {
-                padding: 20px;
-                border-radius: 10px;
+            .titulo-principal {
+                font-size: 2.5em;
             }
 
-            .terminal-header {
-                font-size: 1.8em;
+            .titulo-seccion {
+                font-size: 2em;
             }
 
-            .mapa-container {
+            .cronometro-display {
+                font-size: 4em;
+            }
+
+            .grid-recuerdos {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .razones-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-container {
                 gap: 10px;
             }
 
-            .location-node {
-                padding: 15px;
-            }
-
-            .question-box {
-                padding: 20px;
-            }
-
-            .answer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel {
-                width: 300px;
-                height: 300px;
-            }
-
-            .carousel-item {
-                padding: 25px;
-            }
-
-            .map-canvas {
-                width: 350px;
-                height: 350px;
-            }
-
-            .final-message {
-                font-size: 2em;
+            .nav-btn {
+                padding: 12px 20px;
+                font-size: 0.8em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="world-container">
-        <div class="main-screen">
-            <div class="terminal-header">⚡ MISIÓN: 60 DÍAS DE AMOR ⚡</div>
+    <div class="stars" id="starsContainer"></div>
 
-            <div class="pages-container">
-                <!-- PÁGINA 1: MAPA MUNDIAL -->
-                <div class="page active" id="page1">
-                    <div class="mapa-container">
-                        <div class="location-node" onclick="goToPage(2)">
-                            <div class="location-emoji">🎮</div>
-                            <h3>ZONA JUEGOS</h3>
-                            <p class="location-desc">Desafíos interactivos</p>
-                        </div>
-
-                        <div class="location-node" onclick="goToPage(3)">
-                            <div class="location-emoji">🖼️</div>
-                            <h3>GALERÍA</h3>
-                            <p class="location-desc">Nuestros momentos</p>
-                        </div>
-
-                        <div class="location-node" onclick="goToPage(4)">
-                            <div class="location-emoji">💻</div>
-                            <h3>CÓDIGO</h3>
-                            <p class="location-desc">El lenguaje del amor</p>
-                        </div>
-
-                        <div class="location-node" onclick="goToPage(5)">
-                            <div class="location-emoji">🖥️</div>
-                            <h3>CONSOLA</h3>
-                            <p class="location-desc">Mensajes directos</p>
-                        </div>
-
-                        <div class="location-node" onclick="goToPage(6)">
-                            <div class="location-emoji">🗺️</div>
-                            <h3>TESORO</h3>
-                            <p class="location-desc">Lo más valioso</p>
-                        </div>
-
-                        <div class="location-node" onclick="goToPage(7)">
-                            <div class="location-emoji">🎆</div>
-                            <h3>FINAL</h3>
-                            <p class="location-desc">El mensaje</p>
-                        </div>
-
-                        <div class="location-node" style="grid-column: 2;">
-                            <div class="location-emoji">❤️</div>
-                            <h3>AMOR</h3>
-                            <p class="location-desc">En construcción...</p>
-                        </div>
-
-                        <div class="location-node" style="grid-column: 3;">
-                            <div class="location-emoji">∞</div>
-                            <h3>INFINITO</h3>
-                            <p class="location-desc">60 días...</p>
-                        </div>
-                    </div>
+    <div class="container">
+        <!-- PÁGINA 1: INICIO CINEMATICO -->
+        <div class="page active" id="page1">
+            <div class="cinetico-inicio">
+                <h1 class="titulo-principal">60 DÍAS DE MAGIA</h1>
+                <p class="titulo-sub">Nuestro viaje interdimensional comienza aquí</p>
+                <div class="emojis-flotantes">
+                    <div class="emoji-item">❤️</div>
+                    <div class="emoji-item">💫</div>
+                    <div class="emoji-item">✨</div>
                 </div>
+                <button class="boton-principal" onclick="nextPage()">INICIAR VIAJE →</button>
+            </div>
+        </div>
 
-                <!-- PÁGINA 2: JUEGO DE PREGUNTAS -->
-                <div class="page" id="page2">
-                    <div class="game-arena">
-                        <div class="question-box">
-                            <div class="question-number">PREGUNTA 01/03</div>
-                            <div class="question-text">¿Cuál es mi mayor felicidad?</div>
-                            <div class="answer-grid">
-                                <button class="answer-btn" onclick="checkAnswer(this, true)">VERTE SONREÍR</button>
-                                <button class="answer-btn" onclick="checkAnswer(this, false)">EL DINERO</button>
-                                <button class="answer-btn" onclick="checkAnswer(this, false)">LOS VIDEOJUEGOS</button>
-                                <button class="answer-btn" onclick="checkAnswer(this, true)">TUS ABRAZOS</button>
-                            </div>
-                        </div>
+        <!-- PÁGINA 2: GALERÍA DE RECUERDOS -->
+        <div class="page" id="page2">
+            <div class="galeria-recuerdos">
+                <h2 class="titulo-seccion">📸 Galería de Recuerdos</h2>
+                <div class="grid-recuerdos">
+                    <div class="recuerdo-card" onclick="alert('El primer beso bajo las estrellas 🌟')">
+                        <div class="recuerdo-emoji">💋</div>
+                        <div class="recuerdo-titulo">Primer Beso</div>
+                        <div class="recuerdo-desc">Bajo las estrellas</div>
                     </div>
-                    <div class="bottom-nav">
-                        <button class="nav-btn" onclick="goToPage(1)">← MAPA</button>
-                        <span class="page-counter">ZONA: 02/07</span>
+
+                    <div class="recuerdo-card" onclick="alert('Risas que no se detienen jamás 🎭')">
+                        <div class="recuerdo-emoji">🎭</div>
+                        <div class="recuerdo-titulo">Risas Infinitas</div>
+                        <div class="recuerdo-desc">Tu risa es mi canción</div>
                     </div>
-                </div>
 
-                <!-- PÁGINA 3: GALERÍA 3D -->
-                <div class="page" id="page3">
-                    <div class="gallery-3d">
-                        <div style="width: 100%; text-align: center;">
-                            <div class="carousel">
-                                <div class="carousel-item active">
-                                    <div class="carousel-emoji">🌟</div>
-                                    <div class="carousel-title">Noche Especial</div>
-                                    <div class="carousel-desc">Cuando miraste el cielo y yo miré tus ojos</div>
-                                </div>
-
-                                <div class="carousel-item next">
-                                    <div class="carousel-emoji">☕</div>
-                                    <div class="carousel-title">Cafés Matutinos</div>
-                                    <div class="carousel-desc">Desayunos llenos de risas contigo</div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="carousel-emoji">🎬</div>
-                                    <div class="carousel-title">Películas Juntos</div>
-                                    <div class="carousel-desc">Abrazados viendo nuestras historias favoritas</div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="carousel-emoji">🌹</div>
-                                    <div class="carousel-title">Tu Belleza</div>
-                                    <div class="carousel-desc">Lo que me deja sin palabras cada día</div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="carousel-emoji">🎵</div>
-                                    <div class="carousel-title">Nuestra Música</div>
-                                    <div class="carousel-desc">Canciones que serán siempre nuestras</div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-nav">
-                                <button class="carousel-btn" onclick="prevCarousel()">← Anterior</button>
-                                <button class="carousel-btn" onclick="nextCarousel()">Siguiente →</button>
-                            </div>
-                        </div>
+                    <div class="recuerdo-card" onclick="alert('Cafés matutinos, conversaciones eternas ☕')">
+                        <div class="recuerdo-emoji">☕</div>
+                        <div class="recuerdo-titulo">Cafés Especiales</div>
+                        <div class="recuerdo-desc">Conversaciones infinitas</div>
                     </div>
-                    <div class="bottom-nav">
-                        <button class="nav-btn" onclick="goToPage(1)">← MAPA</button>
-                        <span class="page-counter">ZONA: 03/07</span>
-                    </div>
-                </div>
 
-                <!-- PÁGINA 4: CÓDIGO -->
-                <div class="page" id="page4">
-                    <div class="code-editor">
-                        <div class="code-line"><span class="code-keyword">function</span> <span class="code-function">nuestroAmor</span>() {</div>
-                        <div class="code-line" style="margin-left: 20px;"><span class="code-comment">// 60 días de felicidad absoluta</span></div>
-                        <div class="code-line" style="margin-left: 20px;"><span class="code-keyword">const</span> tú = <span class="code-string">"Mi razón de ser"</span>;</div>
-                        <div class="code-line" style="margin-left: 20px;"><span class="code-keyword">const</span> yo = <span class="code-string">"Completamente tuyo"</span>;</div>
-                        <div class="code-line" style="margin-left: 20px;"><span class="code-keyword">const</span> nosotros = tú + yo;</div>
-                        <div class="code-line"></div>
-                        <div class="code-line" style="margin-left: 20px;"><span class="code-keyword">while</span> (true) {</div>
-                        <div class="code-line" style="margin-left: 40px;">console.log(<span class="code-string">"Te amo"</span>);</div>
-                        <div class="code-line" style="margin-left: 40px;">te_abrazo();</div>
-                        <div class="code-line" style="margin-left: 40px;">await dormir();</div>
-                        <div class="code-line" style="margin-left: 20px;">}</div>
-                        <div class="code-line">}</div>
-                        <div class="code-line"></div>
-                        <div class="code-line"><span class="code-keyword">return</span> <span class="code-string">"Amor infinito"</span>;</div>
+                    <div class="recuerdo-card" onclick="alert('Películas, abrazos, perfecto silencio 🎬')">
+                        <div class="recuerdo-emoji">🎬</div>
+                        <div class="recuerdo-titulo">Películas Juntos</div>
+                        <div class="recuerdo-desc">Abrazados en la oscuridad</div>
                     </div>
-                    <div class="bottom-nav">
-                        <button class="nav-btn" onclick="goToPage(1)">← MAPA</button>
-                        <span class="page-counter">ZONA: 04/07</span>
-                    </div>
-                </div>
 
-                <!-- PÁGINA 5: CONSOLA -->
-                <div class="page" id="page5">
-                    <div class="console-screen">
-                        <div class="console-line"><span class="prompt">$</span> <span class="code-keyword">iniciar_programa</span> --amor-infinito</div>
-                        <div class="console-line" style="color: #00ff88;">Iniciando...</div>
-                        <div class="console-line"></div>
-                        <div class="console-line"><span class="console-input">>> Usuario encontrado: Mi Amor ❤️</span></div>
-                        <div class="console-line"><span class="console-output">✓ Conexión establecida</span></div>
-                        <div class="console-line"></div>
-                        <div class="console-line"><span class="console-input">>> Analizando 60 días de amor...</span></div>
-                        <div class="console-line"><span class="console-output">✓ Momentos especiales: 1000+</span></div>
-                        <div class="console-line"><span class="console-output">✓ Besos: ∞</span></div>
-                        <div class="console-line"><span class="console-output">✓ Abrazos: ∞</span></div>
-                        <div class="console-line"><span class="console-output">✓ Risas: ∞</span></div>
-                        <div class="console-line"></div>
-                        <div class="console-line"><span class="console-input">>> ¿Continuar amándola por siempre? (Y/N)</span></div>
-                        <div class="console-line"><span class="code-keyword">Y</span></div>
-                        <div class="console-line"><span class="console-output">✓ CONFIRMADO. El amor es infinito.</span></div>
-                        <div class="console-line"></div>
-                        <div class="console-line"><span class="code-keyword">> </span><span class="typing-cursor"></span></div>
+                    <div class="recuerdo-card" onclick="alert('Tu belleza me deja sin aire 🌹')">
+                        <div class="recuerdo-emoji">🌹</div>
+                        <div class="recuerdo-titulo">Tu Belleza</div>
+                        <div class="recuerdo-desc">Radiante y natural</div>
                     </div>
-                    <div class="bottom-nav">
-                        <button class="nav-btn" onclick="goToPage(1)">← MAPA</button>
-                        <span class="page-counter">ZONA: 05/07</span>
-                    </div>
-                </div>
 
-                <!-- PÁGINA 6: MAPA DE TESORO -->
-                <div class="page" id="page6">
-                    <div class="treasure-map">
-                        <div class="map-canvas">
-                            <div class="treasure-point" style="top: 10%; left: 15%;" onclick="revealTreasure('El primer beso')">
-                                <div class="treasure-label">START</div>
-                            </div>
-                            <div class="treasure-point" style="top: 25%; left: 75%;" onclick="revealTreasure('Tu risa me hipnotiza')">
-                                <div class="treasure-label">PUNTO 1</div>
-                            </div>
-                            <div class="treasure-point" style="top: 60%; left: 40%;" onclick="revealTreasure('Nuestros secretos')">
-                                <div class="treasure-label">PUNTO 2</div>
-                            </div>
-                            <div class="treasure-point" style="top: 80%; left: 85%;" onclick="revealTreasure('Tu amor es mi tesoro')">
-                                <div class="treasure-label">FINAL</div>
-                            </div>
-                        </div>
-
-                        <div class="treasure-info">
-                            <h3 id="treasureTitle">🗺️ Mapa del Tesoro</h3>
-                            <p id="treasureText">Haz clic en los puntos del mapa para descubrir el tesoro escondido</p>
-                        </div>
-                    </div>
-                    <div class="bottom-nav">
-                        <button class="nav-btn" onclick="goToPage(1)">← MAPA</button>
-                        <span class="page-counter">ZONA: 06/07</span>
-                    </div>
-                </div>
-
-                <!-- PÁGINA 7: FINAL -->
-                <div class="page" id="page7">
-                    <div class="final-screen">
-                        <div class="final-message">🎆 MISIÓN COMPLETADA 🎆</div>
-                        <div class="final-text">
-                            <p>60 días contigo han sido 60 vidas de felicidad comprimidas en momentos.</p>
-                            <br>
-                            <p>No necesito decirte que te amo, porque cada acción mía lo grita.</p>
-                            <br>
-                            <p>Eres mi código, mi consola, mi tesoro, mi todo.</p>
-                            <br>
-                            <p style="color: #ff006e; font-size: 1.5em;">TE AMO INFINITAMENTE ❤️</p>
-                        </div>
-                        <button class="nav-btn" onclick="celebrar()" style="font-size: 1.2em; padding: 20px 40px;">
-                            🎉 CELEBRAR 🎉
-                        </button>
-                        <button class="nav-btn" onclick="goToPage(1)" style="margin-top: 20px;">← VOLVER AL INICIO</button>
+                    <div class="recuerdo-card" onclick="alert('Aventuras que no olvidaré nunca ✈️')">
+                        <div class="recuerdo-emoji">✈️</div>
+                        <div class="recuerdo-titulo">Aventuras</div>
+                        <div class="recuerdo-desc">Lugares nuevos contigo</div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- PÁGINA 3: CRONÓMETRO INTERACTIVO -->
+        <div class="page" id="page3">
+            <div class="cronometro-section">
+                <h2 class="titulo-seccion">⏰ Nuestro Tiempo</h2>
+                <div class="cronometro-display">60 DÍAS</div>
+                <p style="font-size: 2em; color: #FFD700; margin-bottom: 40px;">De puro amor juntos</p>
+                
+                <div class="contador-items">
+                    <div class="contador-item">
+                        <div class="contador-numero">∞</div>
+                        <div class="contador-label">Besos</div>
+                    </div>
+                    <div class="contador-item">
+                        <div class="contador-numero">∞</div>
+                        <div class="contador-label">Abrazos</div>
+                    </div>
+                    <div class="contador-item">
+                        <div class="contador-numero">∞</div>
+                        <div class="contador-label">Momentos</div>
+                    </div>
+                    <div class="contador-item">
+                        <div class="contador-numero">∞</div>
+                        <div class="contador-label">Te Amo's</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: HISTORIAS INTERACTIVAS -->
+        <div class="page" id="page4">
+            <div class="historias-section">
+                <h2 class="titulo-seccion">📖 Nuestras Historias</h2>
+
+                <div class="historia-card" onclick="alert('¡La historia más hermosa que haya vivido! 💕')">
+                    <div class="historia-numero">HISTORIA I</div>
+                    <div class="historia-titulo">El Encuentro Mágico</div>
+                    <div class="historia-texto">
+                        Cuando nuestros ojos se encontraron, sentí que el universo se detuvo. En ese momento, supe que 
+                        eras lo que había estado buscando toda mi vida. Tu sonrisa iluminó mi mundo de una manera que 
+                        no puedo explicar con palabras.
+                    </div>
+                </div>
+
+                <div class="historia-card" onclick="alert('Cada día contigo es un capítulo nuevo 📖')">
+                    <div class="historia-numero">HISTORIA II</div>
+                    <div class="historia-titulo">Nuestros Primeros Recuerdos</div>
+                    <div class="historia-texto">
+                        Los primeros días contigo fueron como vivir en un sueño. Cada conversación era un descubrimiento, 
+                        cada gesto tuyo me enamoraba más. Sabía que esto era especial, sabía que eras especial.
+                    </div>
+                </div>
+
+                <div class="historia-card" onclick="alert('Y la historia continúa... para siempre 🌟')">
+                    <div class="historia-numero">HISTORIA III</div>
+                    <div class="historia-titulo">El Comienzo de Siempre</div>
+                    <div class="historia-texto">
+                        60 días no es nada comparado con la eternidad que quiero pasar contigo. Eres mi presente, mi futuro, 
+                        mi razón. Esta historia no termina aquí, es solo el capítulo inicial de nuestra epopeya de amor.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 5: RAZONES INFINITAS -->
+        <div class="page" id="page5">
+            <div class="razones-section">
+                <h2 class="titulo-seccion">💕 1001 Razones</h2>
+
+                <div class="razones-grid">
+                    <div class="razon-bubble" onclick="alert('Tu sonrisa ilumina mi universo')">Tu Sonrisa</div>
+                    <div class="razon-bubble" onclick="alert('Tu risa es música para mis oídos')">Tu Risa</div>
+                    <div class="razon-bubble" onclick="alert('Tu bondad me inspira diariamente')">Tu Bondad</div>
+                    <div class="razon-bubble" onclick="alert('Tu belleza es incomparable')">Tu Belleza</div>
+                    <div class="razon-bubble" onclick="alert('Tu inteligencia me fascina')">Tu Mente</div>
+                    <div class="razon-bubble" onclick="alert('Tu amor me transforma')">Tu Amor</div>
+                    <div class="razon-bubble" onclick="alert('Tu fuerza me inspira a ser mejor')">Tu Fortaleza</div>
+                    <div class="razon-bubble" onclick="alert('Tu compasión te hace especial')">Tu Compasión</div>
+                    <div class="razon-bubble" onclick="alert('Tu autenticidad es hermosa')">Tu Verdad</div>
+                    <div class="razon-bubble" onclick="alert('Tu presencia calma mi alma')">Tu Calma</div>
+                    <div class="razon-bubble" onclick="alert('Tu pasión es contagiosa')">Tu Pasión</div>
+                    <div class="razon-bubble" onclick="alert('¡Y mil razones más! ∞')">Infinito</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 6: PROMESAS FUTURO -->
+        <div class="page" id="page6">
+            <div class="promesas-section">
+                <h2 class="titulo-seccion">🌟 Mis Promesas</h2>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">💪</span> Promesa 1: Protegerte Siempre
+                    </div>
+                    <div class="promesa-desc">
+                        Con todo mi ser, seré tu escudo. Nada malo te tocará mientras yo esté contigo.
+                    </div>
+                </div>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">💖</span> Promesa 2: Amarte Infinitamente
+                    </div>
+                    <div class="promesa-desc">
+                        Cada día te amaré más que el día anterior. Mi amor por ti no tiene límites.
+                    </div>
+                </div>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">👂</span> Promesa 3: Escucharte Siempre
+                    </div>
+                    <div class="promesa-desc">
+                        Cada palabra tuya importa. Estaré presente en cada momento, escuchándote.
+                    </div>
+                </div>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">🌟</span> Promesa 4: Apoyar Tus Sueños
+                    </div>
+                    <div class="promesa-desc">
+                        Seré tu mayor fan, tu apoyo incondicional en cada meta que te propongas.
+                    </div>
+                </div>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">😊</span> Promesa 5: Hacerte Feliz
+                    </div>
+                    <div class="promesa-desc">
+                        Tu sonrisa es mi razón. Haré todo lo posible para que sonrías cada día.
+                    </div>
+                </div>
+
+                <div class="promesa-item">
+                    <div class="promesa-titulo">
+                        <span class="promesa-emoji">🤗</span> Promesa 6: Estar Aquí Siempre
+                    </div>
+                    <div class="promesa-desc">
+                        En los buenos y malos momentos, aquí estaré. Para siempre a tu lado.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 7: FINAL ÉPICO -->
+        <div class="page" id="page7">
+            <div class="final-epicom">
+                <h1 class="mensaje-final">🎆 MISIÓN COMPLETADA 🎆</h1>
+                <div class="corazon-gigante">❤️</div>
+                
+                <div class="mensaje-amor">
+                    <p style="margin-bottom: 25px;">
+                        Estos 60 días han sido los más hermosos de mi vida.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        No necesito 60 días más para saber que te amo.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        No necesito 600 días para demostrarlo.
+                    </p>
+                    <p style="color: #FF006E; font-size: 2em; text-transform: uppercase; letter-spacing: 2px;">
+                        TE AMO POR SIEMPRE ∞
+                    </p>
+                </div>
+
+                <button class="boton-celebrar" onclick="celebrar()">🎉 CELEBREMOS JUNTOS 🎉</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-indicator">
+        <span id="pageNum">1</span> / 7
+    </div>
+
+    <div class="nav-container">
+        <button class="nav-btn" id="prevBtn" onclick="prevPage()">← ATRÁS</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextPage()">SIGUIENTE →</button>
     </div>
 
     <script>
-        let carouselIndex = 0;
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const totalPages = 7;
         let currentPage = 1;
+        const totalPages = 7;
 
-        function goToPage(page) {
-            if (page < 1 || page > totalPages) return;
-            
-            const current = document.getElementById(`page${currentPage}`);
-            const next = document.getElementById(`page${page}`);
-            
-            if (current) current.classList.remove('active');
-            if (next) next.classList.add('active');
-            
-            currentPage = page;
-            window.scrollTo(0, 0);
-        }
-
-        function prevCarousel() {
-            carouselIndex = (carouselIndex - 1 + carouselItems.length) % carouselItems.length;
-            updateCarousel();
-        }
-
-        function nextCarousel() {
-            carouselIndex = (carouselIndex + 1) % carouselItems.length;
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            carouselItems.forEach((item, index) => {
-                item.classList.remove('active', 'prev', 'next');
-                
-                if (index === carouselIndex) {
-                    item.classList.add('active');
-                } else if (index === (carouselIndex - 1 + carouselItems.length) % carouselItems.length) {
-                    item.classList.add('prev');
-                } else if (index === (carouselIndex + 1) % carouselItems.length) {
-                    item.classList.add('next');
-                }
-            });
-        }
-
-        function checkAnswer(element, isCorrect) {
-            if (isCorrect) {
-                element.classList.add('correct');
-                setTimeout(() => {
-                    alert('¡Correcto! ¡Me conoces bien! 💕');
-                }, 300);
-            } else {
-                element.classList.add('incorrect');
-                setTimeout(() => {
-                    alert('Casi, pero lo más importante es que te amo sin condiciones 💕');
-                }, 300);
+        function generateStars() {
+            const container = document.getElementById('starsContainer');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(star);
             }
         }
 
-        function revealTreasure(message) {
-            document.getElementById('treasureTitle').textContent = '💎 Tesoro Encontrado';
-            document.getElementById('treasureText').textContent = message;
+        function updatePage() {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`page${currentPage}`).classList.add('active');
+            document.getElementById('pageNum').textContent = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
         }
 
         function celebrar() {
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 80; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    particle.style.left = Math.random() * 100 + 'vw';
-                    particle.style.top = Math.random() * 100 + 'vh';
-                    
-                    const emojis = ['❤️', '💕', '💖', '✨', '🎆', '🎉', '💫', '⭐'];
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.top = window.innerHeight + 'px';
+
+                    const emojis = ['❤️', '💕', '💖', '✨', '🎆', '🎉', '⭐', '💫', '🌟'];
                     particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    
+
                     document.body.appendChild(particle);
                     setTimeout(() => particle.remove(), 3000);
-                }, i * 100);
+                }, i * 50);
             }
         }
 
-        updateCarousel();
+        // Inicializar
+        generateStars();
+        updatePage();
     </script>
 </body>
 </html>
