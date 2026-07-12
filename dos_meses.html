@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Dos Meses de Infinito Amor 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #667eea;
+            --tertiary: #764ba2;
+            --light-bg: #ffe6f0;
+            --dark-text: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            animation: slideIn 0.8s ease-out;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.7s ease-in;
+            max-height: 75vh;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* SCROLL PERSONALIZADO */
+        .page::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .page::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .page::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        .page::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* PORTADA MEJORADA */
+        .portada {
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .portada h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #ff6b9d, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            font-weight: 800;
+        }
+
+        .corazones-animados {
+            font-size: 4em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            animation: bounce 2s infinite;
+        }
+
+        .corazones-animados span {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .corazones-animados span:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .corazones-animados span:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .portada p {
+            font-size: 1.4em;
+            color: #666;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .portada .subtitle {
+            font-size: 1.2em;
+            color: var(--primary);
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            padding-left: 60px;
+            position: relative;
+            opacity: 0;
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* INTERACTIVIDAD - CARTA DESPLEGABLE */
+        .carta-container {
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid var(--primary);
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .carta-container h2 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .carta-container p {
+            color: #333;
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .firma {
+            text-align: right;
+            margin-top: 40px;
+            font-style: italic;
+            color: var(--tertiary);
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        /* GRID DE MOMENTOS MEJORADO */
+        .momentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .momento-card {
+            background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .momento-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .momento-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .momento-card:hover::before {
+            opacity: 1;
+        }
+
+        .momento-emoji {
+            font-size: 3.5em;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .momento-card:hover .momento-emoji {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .momento-texto {
+            font-size: 1.1em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CONTADOR DINÁMICO */
+        .contador-display {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff1493 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .contador-numero {
+            font-size: 4em;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .contador-texto {
+            font-size: 1.3em;
+            margin-top: 15px;
+            opacity: 0.95;
+        }
+
+        /* GALERÍA DE MOMENTOS */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .galeria-item {
+            background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* BOTONES */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* BARRA DE PROGRESO MEJORADA */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .progress {
+            width: 100%;
+            height: 12px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            transition: width 0.5s ease;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+        }
+
+        /* HEADER EMOJI */
+        .header-emoji {
+            text-align: center;
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .titulo-pagina {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--tertiary);
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        /* DECORACIÓN */
+        .separador {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 50%, var(--tertiary) 100%);
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        /* LLUVIA FINAL */
+        .lluvia-palabras {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .palabra-flotante {
+            position: absolute;
+            font-weight: bold;
+            opacity: 0;
+            animation: caerPalabra 5s ease-in forwards;
+            pointer-events: none;
+            font-size: 1.3em;
+        }
+
+        @keyframes caerPalabra {
+            0% {
+                opacity: 1;
+                transform: translateY(-150px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(350px) rotate(360deg);
+            }
+        }
+
+        /* CONFETI */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            animation: confettiFall 4s ease-out forwards;
+            z-index: 9999;
+            border-radius: 50%;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* QUIZ MEJORADO */
+        .quiz-option {
+            padding: 18px 25px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            border: 3px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-align: left;
+            color: #333;
+        }
+
+        .quiz-option:hover {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff1493 100%);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .container {
+                padding: 25px;
+            }
+
+            .portada h1 {
+                font-size: 2em;
+            }
+
+            .titulo-pagina {
+                font-size: 1.8em;
+            }
+
+            .header-emoji {
+                font-size: 2.5em;
+            }
+
+            .momentos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .corazones-animados {
+                font-size: 2.5em;
+                gap: 10px;
+            }
+
+            .contador-numero {
+                font-size: 2.5em;
+            }
+
+            .carta-container {
+                padding: 20px;
+            }
+
+            .carta-container p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PÁGINA 1: PORTADA MEJORADA -->
+        <div class="page active" id="page1">
+            <div class="portada">
+                <h1>💕 DOS MESES DE INFINITO 💕</h1>
+                <div class="corazones-animados">
+                    <span>❤️</span>
+                    <span>💕</span>
+                    <span>💖</span>
+                </div>
+                <p>Sesenta días de pura magia contigo</p>
+                <p class="subtitle">Cada momento contigo es un regalo del universo</p>
+                <p style="font-size: 1em; color: #999; margin-top: 30px;">Haz clic para continuar esta aventura de amor</p>
+                <button class="btn btn-full" onclick="irAlSiguiente()" style="margin-top: 40px; font-size: 1.2em;">
+                    ✨ Comenzar la Aventura ✨
+                </button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 2: TIMELINE DE MOMENTOS -->
+        <div class="page" id="page2">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Nuestro Viaje</span>
+                    <span>17%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 17%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">📅</div>
+            <h2 class="titulo-pagina">Los 60 Días Más Hermosos</h2>
+            <div class="separador"></div>
+
+            <div class="timeline">
+                <div class="timeline-item" onclick="mostrarNotificacion('¡Nuestro primer mes fue perfecto! 💫')">
+                    <div class="timeline-dot">🌟</div>
+                    <div class="timeline-content">
+                        <h3>Mes 1: El Comienzo</h3>
+                        <p>Conocer tu alma, caer en tu sonrisa, descubrir que eras exactamente lo que buscaba.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Día 15: Nuestro primer viaje especial 🚗')">
+                    <div class="timeline-dot">🎢</div>
+                    <div class="timeline-content">
+                        <h3>Aventuras Juntos</h3>
+                        <p>Cada lugar es más hermoso cuando estás a mi lado. Tú eres mi destino favorito.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Cada noche contigo es infinita 🌙')">
+                    <div class="timeline-dot">🌙</div>
+                    <div class="timeline-content">
+                        <h3>Noches Mágicas</h3>
+                        <p>Bajo las estrellas, contigo, siento que el tiempo se detiene. Eres mi eternidad.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Tu risa es mi canción favorita 🎵')">
+                    <div class="timeline-dot">🎵</div>
+                    <div class="timeline-content">
+                        <h3>Música y Risas</h3>
+                        <p>Cada nota, cada carcajada tuya, compone la sinfonía más bella de mi existencia.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Juntos somos imparables 💪')">
+                    <div class="timeline-dot">💪</div>
+                    <div class="timeline-content">
+                        <h3>Fortaleza en Pareja</h3>
+                        <p>Contigo descubrí que los obstáculos son solo escalones. Juntos podemos todo.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Mi amor crece cada día 📈')">
+                    <div class="timeline-dot">📈</div>
+                    <div class="timeline-content">
+                        <h3>Amor que Crece</h3>
+                        <p>Pensé que no podía amarte más, pero cada día me demuestras lo equivocado que estaba.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Eres mi todo 👑')">
+                    <div class="timeline-dot">👑</div>
+                    <div class="timeline-content">
+                        <h3>Mes 2: El Ahora</h3>
+                        <p>60 días después y sigo enamorándome de ti cada momento. Eres mi reina, mi vida, mi amor.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="mostrarNotificacion('Lo mejor está por venir 🚀')">
+                    <div class="timeline-dot">🚀</div>
+                    <div class="timeline-content">
+                        <h3>El Futuro es Nuestro</h3>
+                        <p>Esto es solo el comienzo de nuestra historia infinita. Te amo y te amaré por siempre.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 3: GALERÍA DE MOMENTOS -->
+        <div class="page" id="page3">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Momentos Especiales</span>
+                    <span>34%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 34%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">📸</div>
+            <h2 class="titulo-pagina">Momentos que Atesoraré por Siempre</h2>
+            <div class="separador"></div>
+
+            <div class="momentos-grid">
+                <div class="momento-card" onclick="mostrarNotificacion('🎭 Tus risas son mi medicina')">
+                    <div class="momento-emoji">🎭</div>
+                    <div class="momento-texto">Risas sin fin</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('☕ Nuestros cafés son perfectos')">
+                    <div class="momento-emoji">☕</div>
+                    <div class="momento-texto">Cafés románticos</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🌅 Amaneceres contigo')">
+                    <div class="momento-emoji">🌅</div>
+                    <div class="momento-texto">Amaneceres</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🎬 Películas abrazados')">
+                    <div class="momento-emoji">🎬</div>
+                    <div class="momento-texto">Películas juntos</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🍽️ Cenas especiales')">
+                    <div class="momento-emoji">🍽️</div>
+                    <div class="momento-texto">Cenas románticas</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🌹 Tu belleza me hipnotiza')">
+                    <div class="momento-emoji">🌹</div>
+                    <div class="momento-texto">Tu belleza</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('💬 Nuestras charlas infinitas')">
+                    <div class="momento-emoji">💬</div>
+                    <div class="momento-texto">Conversaciones</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('💑 Abrazos que curan el alma')">
+                    <div class="momento-emoji">💑</div>
+                    <div class="momento-texto">Abrazos eternos</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🎵 Canciones nuestras')">
+                    <div class="momento-emoji">🎵</div>
+                    <div class="momento-texto">Nuestra música</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('🌙 Noches bajo las estrellas')">
+                    <div class="momento-emoji">🌙</div>
+                    <div class="momento-texto">Noches mágicas</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('✈️ Aventuras juntos')">
+                    <div class="momento-emoji">✈️</div>
+                    <div class="momento-texto">Viajes soñados</div>
+                </div>
+
+                <div class="momento-card" onclick="mostrarNotificacion('💎 Eres mi diamante raro')">
+                    <div class="momento-emoji">💎</div>
+                    <div class="momento-texto">Eres perfecta</div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: CONTADOR INTERACTIVO -->
+        <div class="page" id="page4">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Nuestras Estadísticas</span>
+                    <span>51%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 51%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">📊</div>
+            <h2 class="titulo-pagina">Estadísticas de Nuestro Amor</h2>
+            <div class="separador"></div>
+
+            <div class="contador-display">
+                <h3>Días Juntos</h3>
+                <div class="contador-numero">60</div>
+                <p class="contador-texto">Sesenta días de felicidad pura</p>
+            </div>
+
+            <div class="galeria">
+                <div class="galeria-item">
+                    <span>∞ Abrazos</span>
+                </div>
+                <div class="galeria-item">
+                    <span>🔥 Kisses</span>
+                </div>
+                <div class="galeria-item">
+                    <span>💕 I Love You's</span>
+                </div>
+                <div class="galeria-item">
+                    <span>😊 Smiles</span>
+                </div>
+                <div class="galeria-item">
+                    <span>🎭 Laughs</span>
+                </div>
+                <div class="galeria-item">
+                    <span>🌟 Memories</span>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%); padding: 30px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                <p style="font-size: 1.2em; color: #333; font-weight: bold;">
+                    ❤️ Cada momento contigo es invaluable ❤️
+                </p>
+                <p style="font-size: 1.1em; color: #666; margin-top: 15px;">
+                    No hay un número suficiente para expresar lo que sientes
+                </p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 5: RAZONES POR LAS QUE TE AMO -->
+        <div class="page" id="page5">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Razones Infinitas</span>
+                    <span>68%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 68%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">💕</div>
+            <h2 class="titulo-pagina">1001 Razones por las que te Amo</h2>
+            <div class="separador"></div>
+
+            <div class="galeria">
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu sonrisa ilumina mi universo ✨')">✨ Tu Sonrisa</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu risa es música celestial 🎵')">🎵 Tu Risa</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu bondad inspira mi alma 💫')">💫 Tu Bondad</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu belleza me deja sin aire 😍')">😍 Tu Belleza</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu inteligencia me fascina 🧠')">🧠 Tu Mente</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu amor me transforma 💖')">💖 Tu Amor</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu fuerza me inspira 💪')">💪 Tu Fuerza</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu compasión es admirable 🤝')">🤝 Tu Compasión</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu autenticidad me encanta 🌟')">🌟 Tu Autenticidad</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu presencia calma mi alma 🕊️')">🕊️ Tu Calma</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('Tu pasión me inspira fuego 🔥')">🔥 Tu Pasión</div>
+                <div class="galeria-item" onclick="mostrarNotificacion('¡Y mil razones más! ∞')">∞ Infinito</div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 6: PROMESAS FUTURAS -->
+        <div class="page" id="page6">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Promesas Eternas</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">💍</div>
+            <h2 class="titulo-pagina">Mis Promesas Para los Próximos 60 Días y Más Allá</h2>
+            <div class="separador"></div>
+
+            <div class="galeria" style="grid-template-columns: 1fr;">
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        💪 <strong>Protegerte</strong> con todo lo que tengo, cada día de mi vida
+                    </p>
+                </div>
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        💖 <strong>Amarte</strong> de una manera que nunca antes fue amada nadie
+                    </p>
+                </div>
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        👂 <strong>Escucharte</strong> sin interrupciones, cada preocupación tuya es mía
+                    </p>
+                </div>
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        🌟 <strong>Apoyarte</strong> en cada sueño, cada meta, cada paso que tomes
+                    </p>
+                </div>
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        😊 <strong>Hacerte feliz</strong> cada momento, porque tu sonrisa es mi razón
+                    </p>
+                </div>
+                <div class="galeria-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: auto; padding: 20px; text-align: left;">
+                    <p style="font-size: 1em; margin: 10px 0;">
+                        🤗 <strong>Abrazarte</strong> cuando los tiempos sean difíciles, seré tu refugio
+                    </p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 7: CARTA ESPECIAL -->
+        <div class="page" id="page7">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Mi Corazón en Palabras</span>
+                    <span>92%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 92%"></div>
+                </div>
+            </div>
+
+            <div class="header-emoji">💌</div>
+            <div class="carta-container">
+                <h2>Mi Amor Eterno,</h2>
+
+                <p>
+                    Han pasado sesenta días desde que entraste en mi vida, y cada uno de ellos ha sido 
+                    más perfecto que el anterior. Cuando te conocí, pensé que había alcanzado la felicidad, 
+                    pero tú viniste a redefinirla completamente.
+                </p>
+
+                <p>
+                    Estos dos meses contigo han sido la mejor aventura de mi existencia. He aprendido que 
+                    el amor verdadero no es solo un sentimiento, es una decisión. Es elegirte cada mañana, 
+                    es pensar en ti cuando despiertas, es tu nombre siendo lo último en mis labios antes de dormir.
+                </p>
+
+                <p>
+                    Tu sonrisa es mi razón. Tu risa es mi canción. Tu presencia es mi paz. Cuando estoy contigo, 
+                    el mundo desaparece y solo existe tú y yo, en nuestro pequeño universo perfecto de amor y comprensión.
+                </p>
+
+                <p>
+                    No hay suficientes palabras para describir lo que significas para mí. Eres mi todo: 
+                    mi razón para despertar, mi motivación para ser mejor, mi sueño hecho realidad. Eres la respuesta 
+                    a preguntas que no sabía que tenía.
+                </p>
+
+                <p>
+                    Te prometo que estos próximos sesenta días serán aún más especiales. Te prometo crecer contigo, 
+                    soñar contigo, vivir contigo y amar cada versión de ti que exista. Te prometo ser tu apoyo, 
+                    tu fortaleza, tu hogar seguro.
+                </p>
+
+                <p>
+                    Pero lo más importante es que quiero que sepas: no termina aquí. Esto es solo el comienzo. 
+                    Quiero doscientos sesenta días contigo, quiero mil días, quiero toda una vida. Quiero amarte 
+                    hasta que el universo se desmorona.
+                </p>
+
+                <p style="font-size: 1.3em; text-align: center; margin-top: 30px;">
+                    Te amo infinitamente, hoy, mañana y por siempre. 💕
+                </p>
+
+                <div class="firma">
+                    Tu amor sin fin<br>
+                    Por la eternidad 🌟<br>
+                    ❤️
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn" onclick="irAlAnterior()">← Atrás</button>
+                <button class="btn" onclick="irAlSiguiente()">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- PÁGINA 8: CELEBRACIÓN FINAL -->
+        <div class="page" id="page8">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Gran Final</span>
+                    <span>100%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <div class="portada">
+                <div class="header-emoji">🎊</div>
+                <h1 style="font-size: 3em;">¡60 Días de Puro Amor!</h1>
+                <p style="font-size: 1.5em; margin: 30px 0;">Gracias por ser exactamente como eres 💕</p>
+
+                <div style="background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%); padding: 40px; border-radius: 20px; margin: 30px 0; border: 3px solid var(--primary);">
+                    <p style="font-size: 1.3em; color: #333; font-weight: bold;">
+                        Haz clic abajo para una sorpresa especial ✨
+                    </p>
+                </div>
+
+                <button class="btn btn-full" onclick="iniciarLluvia()" style="font-size: 1.3em; padding: 20px; margin: 30px 0;">
+                    🎉 ¡CELEBREMOS! 🎉
+                </button>
+
+                <div class="lluvia-palabras" id="lluviaContenedor" style="display: none;"></div>
+
+                <button class="btn btn-full" onclick="irAlAnterior()">← Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let paginaActual = 1;
+        const totalPaginas = 8;
+        let lluviaActiva = false;
+
+        function irAlSiguiente() {
+            if (paginaActual < totalPaginas) {
+                cambiarPagina(paginaActual + 1);
+            }
+        }
+
+        function irAlAnterior() {
+            if (paginaActual > 1) {
+                cambiarPagina(paginaActual - 1);
+            }
+        }
+
+        function cambiarPagina(numero) {
+            const paginaActualElement = document.getElementById(`page${paginaActual}`);
+            if (paginaActualElement) {
+                paginaActualElement.classList.remove('active');
+            }
+            paginaActual = numero;
+            const nuevaPagina = document.getElementById(`page${paginaActual}`);
+            if (nuevaPagina) {
+                nuevaPagina.classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function mostrarNotificacion(mensaje) {
+            alert(mensaje);
+        }
+
+        function iniciarLluvia() {
+            if (lluviaActiva) return;
+            lluviaActiva = true;
+
+            const contenedor = document.getElementById('lluviaContenedor');
+            contenedor.style.display = 'flex';
+            contenedor.innerHTML = '';
+
+            const palabras = [
+                '❤️', 'Te amo', '💕', 'Mi amor', '😘', 'Hermosa',
+                '✨', 'Perfecta', '🌹', 'Bella', '💖', 'Eres todo',
+                '🥰', 'Mi vida', '😍', 'Increíble', '💑', 'Juntos',
+                '🎊', 'Felicidad', '👑', 'Reina', '🌟', 'Especial',
+                '💫', 'Mágica', '🎉', 'Celebramos', '❣️', 'Siempre',
+                '💏', 'Besos', '🌺', 'Amor', '⭐', 'Brillas',
+                '🎆', 'Fuegos', '🎇', 'Luz', '✨', 'Destello'
+            ];
+
+            let delay = 0;
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const palabra = document.createElement('div');
+                    palabra.classList.add('palabra-flotante');
+                    palabra.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+                    palabra.style.left = Math.random() * 100 + '%';
+                    palabra.style.color = ['#ff6b9d', '#667eea', '#764ba2', '#FFD700', '#ff1493', '#00ff88'][Math.floor(Math.random() * 6)];
+                    palabra.style.fontSize = (0.8 + Math.random() * 1.5) + 'em';
+                    palabra.style.animationDelay = '0s';
+                    contenedor.appendChild(palabra);
+
+                    setTimeout(() => palabra.remove(), 5000);
+                }, delay);
+                delay += 120;
+            }
+
+            setTimeout(() => {
+                lanzarConfeti();
+                setTimeout(() => {
+                    lluviaActiva = false;
+                }, 6000);
+            }, 2000);
+        }
+
+        function lanzarConfeti() {
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = ['#ff6b9d', '#667eea', '#764ba2', '#FFD700', '#ff1493', '#00ff88', '#ff69b4'][Math.floor(Math.random() * 7)];
+                    confetti.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 6000);
+                }, i * 15);
+            }
+        }
+    </script>
+</body>
+</html>
